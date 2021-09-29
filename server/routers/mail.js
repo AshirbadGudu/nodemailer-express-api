@@ -1,5 +1,5 @@
 const express = require("express");
-const { transporter } = require("../config");
+const { transporter } = require("../configs");
 const router = express.Router();
 
 router
