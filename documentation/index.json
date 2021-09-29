@@ -1,0 +1,68 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "NodeJS Express API for handing mail with nodemailer",
+    "version": "1.0.0",
+    "title": "nodemailer-express-api"
+  },
+  "host": "127.0.0.1:5002",
+  "basePath": "/",
+  "schemes": ["https", "http"],
+  "tags": [
+    {
+      "name": "NodeJS Mail Send API",
+      "description": "Everything About Mail Send"
+    }
+  ],
+  "paths": {
+    "/mail/send": {
+      "get": {
+        "tags": ["Mail Send API"],
+        "operationId": "mail-send-get-api",
+        "produces": ["application/json"],
+        "responses": {
+          "default": {
+            "description": "/mail/send is a post route handling email related stuff"
+          }
+        }
+      },
+      "post": {
+        "tags": ["Mail Send API"],
+        "operationId": "mail-send-post-api",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user Record",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/mail-send-api-body"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Mail sent successfully"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "mail-send-api-body": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
